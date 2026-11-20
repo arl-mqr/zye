@@ -1,0 +1,732 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Songti TC", serif;
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 通用页面规则 */
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.page.active {
+  display: block;
+}
+.page img {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 页面1专属背景 */
+.page-1 {
+  background-image: url("./assets/marble_bg.jpg");
+}
+.page-2 {
+  background-image: url("./assets/page2_bg.jpg");
+}
+.page-3 {
+  background-image: url("./assets/page3_bg.jpg");
+}
+
+/* 通用内容容器 */
+.wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 0 10vw;
+  color: #111;
+}
+.page-2 .wrap, .page-3 .wrap {
+  color: #fff;
+  text-align: center;
+  align-items: center;
+}
+.wrap h1 {
+  font-size: 32px;
+  line-height: 1.6;
+}
+.wrap p {
+  font-size: 24px;
+  line-height: 1.8;
+}
+.gold-label {
+  background: #b8860b;
+  color: #000;
+  padding: 8px 20px;
+  font-size: 24px;
+}
+.wrap input {
+  padding: 12px 16px;
+  font-size: 20px;
+  width: 300px;
+  border: none;
+}
+.wrap button {
+  padding: 12px 28px;
+  font-size: 20px;
+  background: #701010;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.back-btn {
+  margin-top: 20px;
+}
+
+/* ========== 页面1 天使滑入动画 ========== */
+.angel-statue {
+  position: absolute;
+  right: -10%;
+  bottom: 0;
+  height: 95vh;
+  opacity: 0;
+  z-index: 1;
+  animation: angelSlideIn 2.2s ease-out forwards;
+}
+@keyframes angelSlideIn {
+  0% {right: -40%; opacity: 0;}
+  100% {right: -10%; opacity: 1;}
+}
+
+/* ========== 页面2 元素动画 ========== */
+.page2-angel {
+  animation: angelSlideOut 1.5s ease-in forwards 2s;
+}
+@keyframes angelSlideOut {
+  0% {right: -10%; opacity: 1;}
+  100% {right: -40%; opacity: 0;}
+}
+.hands-left-deco {
+  position: absolute;
+  left: -8%;
+  bottom: 10%;
+  height: 75vh;
+  opacity: 0;
+  z-index: 1;
+  animation: handsSlideIn 1.5s ease-out 0s forwards,
+             handsSlideOut 1.5s ease-in 2s forwards;
+}
+@keyframes handsSlideIn {
+  0% {left: -35%; opacity: 0;}
+  100% {left: -8%; opacity: 1;}
+}
+@keyframes handsSlideOut {
+  0% {left: -8%; opacity: 1;}
+  100% {left: -35%; opacity: 0;}
+}
+.circle-deco {
+  position: absolute;
+  top: 4%;
+  left: 4%;
+  width: 22vw;
+  opacity: 0;
+  transform: rotate(-20deg);
+  z-index: 1;
+  animation: circleFadeRotateIn 1.5s ease-out 0s forwards,
+             circleFadeOut 1.5s ease-in 2s forwards;
+}
+@keyframes circleFadeRotateIn {
+  0% {opacity: 0; transform: rotate(-20deg);}
+  100% {opacity: 1; transform: rotate(8deg);}
+}
+@keyframes circleFadeOut {
+  0% {opacity: 1; transform: rotate(8deg);}
+  100% {opacity: 0; transform: rotate(25deg);}
+}
+.text-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: textUpFade 1.6s ease-out forwards;
+}
+@keyframes textUpFade {
+  0% {opacity: 0; transform: translateY(40px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+/* ========== 页面4 全套错落入场动画 ========== */
+.page-4 {
+  overflow: hidden;
+}
+.page-4 img {
+  position: absolute;
+  pointer-events: none;
+}
+.art-link-click {
+  cursor: pointer;
+  pointer-events: auto;
+}
+.p4-bg {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: bgFadeIn 1.2s ease-out 0s forwards;
+}
+@keyframes bgFadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+.p4-banner-top {
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: bannerTopSlide 1.2s ease-out 1.2s forwards;
+}
+@keyframes bannerTopSlide {
+  0% {transform: translateX(-100%); opacity: 0;}
+  100% {transform: translateX(0); opacity: 1;}
+}
+.p4-banner-bottom {
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: bannerBottomSlide 1.2s ease-out 1.2s forwards;
+}
+@keyframes bannerBottomSlide {
+  0% {transform: translateX(100%); opacity: 0;}
+  100% {transform: translateX(0); opacity: 1;}
+}
+.p4-frame-pray {
+  right: 1%;
+  top: 25%;
+  width: 55vw;
+  opacity: 0;
+  transform: translateY(120%);
+  animation: prayFrameUp 1.6s ease-out 1.6s forwards;
+}
+@keyframes prayFrameUp {
+  0% {transform: translateY(120%); opacity: 0;}
+  100% {transform: translateY(0); opacity: 1;}
+}
+.p4-frame-fallen {
+  left: 20%;
+  top: 18%;
+  width: 24vw;
+  opacity: 0;
+  transform: translateX(-120%);
+  animation: fallenFrameSlide 1.6s ease-out 1.6s forwards;
+}
+@keyframes fallenFrameSlide {
+  0% {transform: translateX(-120%); opacity: 0;}
+  100% {transform: translateX(0); opacity: 1;}
+}
+.p4-text-fallen {
+  left: 22%;
+  top: 8%;
+  width: 20vw;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: textUpFade 1.2s ease-out 2.2s forwards;
+  pointer-events: auto !important; /* 加上这一行！ */
+  cursor: pointer !important;
+}
+
+.p4-text-pray {
+  right: 14%;
+  top: 12%;
+  width: 20vw;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: textUpFade 1.2s ease-out 2.2s forwards;
+}
+.p4-frame-adam {
+  left: 12%;
+  top: 48%;
+  width: 28vw;
+  opacity: 0;
+  transform: translateY(90%);
+  animation: adamFrameUp 1.5s ease-out 2.2s forwards;
+}
+@keyframes adamFrameUp {
+  0% {transform: translateY(90%); opacity: 0;}
+  100% {transform: translateY(0); opacity: 1;}
+}
+.p4-title-main {
+  top: -10%;
+  left: 5%;
+  width: 45vw;
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: mainTitleSlide 1.4s ease-out 3.7s forwards;
+}
+@keyframes mainTitleSlide {
+  0% {transform: translateX(-100%); opacity: 0;}
+  100% {transform: translateX(0); opacity: 1;}
+}
+.p4-title-prompt {
+  bottom: -10%;
+  left: 12%;
+  width: 60vw;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: promptSlide 1.4s ease-out 3.7s forwards;
+}
+@keyframes promptSlide {
+  0% {transform: translateX(100%); opacity: 0;}
+  100% {transform: translateX(0); opacity: 1;}
+}
+.p4-deco-angel {
+  right: -12%;
+  bottom: 0;
+  height: 96vh;
+  opacity: 0;
+  transform: translateX(30%);
+  animation: decoAngelIn 1.8s ease-out 3.2s forwards;
+}
+@keyframes decoAngelIn {
+  0% {transform: translateX(30%); opacity: 0;}
+  100% {transform: translateX(0); opacity: 0.35;}
+}
+.p4-deco-hands {
+  left: -32%;
+  bottom: 12%;
+  height:72vh;
+  opacity: 0;
+  transform: translateX(-30%);
+  animation: decoHandsIn 1.8s ease-out 3.2s forwards;
+}
+@keyframes decoHandsIn {
+  0% {transform: translateX(-30%); opacity: 0;}
+  100% {transform: translateX(0); opacity: 0.35;}
+}
+
+.p4-frame-crying {
+  right: 8%;
+  bottom: 10%;
+  width: 20vw;
+  opacity: 0;
+  transform: translateY(90%);
+  animation: cryingFrameUp 1.5s ease-out 4.2s forwards;
+}
+@keyframes cryingFrameUp {
+  0% {transform: translateY(90%); opacity: 0;}
+  100% {transform: translateY(0); opacity: 1;}
+}
+.p4-text-adam {
+  left: 8%;
+  bottom: 15%;
+  width: 18vw;
+  opacity: 0;
+  transform: translateY(90%);
+  animation: cryingFrameUp 1.5s ease-out 4.2s forwards;
+}
+
+.enter-summary-btn {
+  position: absolute;
+  right: 5%;
+  bottom: 6%;
+  z-index: 30;
+  padding: 12px 26px;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: #f5e6c8;
+  background: linear-gradient(180deg, #5c3a3a 0%, #2f1a1a 100%);
+  border: 1px solid #a07952;
+  border-radius: 3px;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s ease;
+}
+.enter-summary-btn:hover {
+  color: #fff8e1;
+  border-color: #c9a974;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.skip-btn {
+  background: rgba(40, 20, 20, 0.85) !important;
+  border: 1px solid rgba(200, 170, 130, 0.5) !important;
+  color: #f0e2cc !important;
+}
+
+/* ========== 页面5（堕落天使详情页） ========== */
+
+.page-fallen {
+  overflow: hidden;
+}
+.page-fallen .p4-bg,
+.page-fallen .p4-banner-top,
+.page-fallen .p4-banner-bottom {
+  position: absolute;
+}
+
+.frame-main-fallen {
+  position: absolute;
+  left: 10%;
+  top: 18%;
+  width: 50vw;
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: prayFrameUp 1.1s ease-out 1.9s forwards;
+}
+.frame-main-fallen img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.frame-eye-fallen {
+  position: absolute;
+  left: 10%;
+  bottom: 18%;
+  width: 25vw;
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: prayFrameUp 1.1s ease-out 2.3s forwards;
+}
+.frame-eye-fallen img {
+  width: 100%;
+}
+
+.text-eye-fallen {
+  position: absolute;
+  left: 35%;
+  bottom: 24%;
+  color: #fff;
+  font-size: 1.2vw;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(-25px);
+  animation: textDownFade 1s ease-out 2.7s forwards;
+}
+
+.frame-side-fallen {
+  position: absolute;
+  right: 12%;
+  bottom: 20%;
+  width: 25vw;
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: prayFrameUp 1.1s ease-out 2.1s forwards;
+}
+.frame-side-fallen img {
+  width: 100%;
+}
+
+.text-main-fallen {
+  position: absolute;
+  right: 8%;
+  top: 35%;
+  width: 40vw;
+  color: #fff;
+  font-size: 1.35vw;
+  line-height: 1.9;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-25px);
+  animation: textDownFade 1s ease-out 2.5s forwards;
+}
+
+@keyframes textDownFade {
+  0% {opacity: 0; transform: translateY(25px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+.page-fallen .back-btn {
+  position: absolute;
+  left: 4%;
+  top: 4%;
+  z-index: 30;
+  padding: 10px 22px;
+  font-size: 15px;
+  background: rgba(40, 20, 20, 0.85);
+  border: 1px solid rgba(200, 170, 130, 0.5);
+  color: #f0e2cc;
+  cursor: pointer;
+}
+/* ========== 页面6（祈禱聖母詳情頁 page-pray） ========== */
+.page-pray {
+overflow: hidden;
+}
+.page-pray .p4-bg,
+.page-pray .p4-banner-top,
+.page-pray .p4-banner-bottom {
+position: absolute;
+}
+
+/* 中間主畫框：祈禱聖母大圖 */
+.frame-main-pray {
+position: absolute;
+left: 20%;
+top: 25%;
+width: 60vw;
+opacity: 0;
+transform: translateY(-40px);
+animation: prayFrameUp 1.1s ease-out 1.9s forwards;
+}
+.frame-main-pray img {
+width: 100%;
+top: 30%;
+height: auto;
+display: block;
+}
+
+/* 左上小畫框：眼睛特寫 */
+.frame-eye-pray {
+position: absolute;
+left: 10%;
+top: 24%;
+width: 26vw;
+opacity: 0;
+transform: translateY(-40px);
+animation: prayFrameUp 1.1s ease-out 2.1s forwards;
+}
+.frame-eye-pray img {
+width: 100%;
+}
+
+/* 左上眼睛旁文字 */
+.text-eye-pray {
+position: absolute;
+left: 20%;
+top: 20%;
+color: #fff;
+font-size: 1.2vw;
+line-height: 1.8;
+opacity: 0;
+transform: translateY(-25px);
+animation: textDownFade 1s ease-out 2.5s forwards;
+}
+
+/* 左下小畫框：哭泣聖母雕塑 */
+.frame-side-pray {
+position: absolute;
+left: 18%;
+bottom: 22%;
+width: 22vw;
+opacity: 0;
+transform: translateY(-40px);
+animation: prayFrameUp 1.1s ease-out 2.3s forwards;
+}
+.frame-side-pray img {
+width: 100%;
+}
+
+/* 左下雕塑旁文字 */
+.text-side-pray {
+position: absolute;
+left: 8%;
+bottom: 20%;
+width: 12vw;
+color: #fff;
+font-size: 1.15vw;
+line-height: 1.8;
+opacity: 0;
+transform: translateY(-25px);
+animation: textDownFade 1s ease-out 2.7s forwards;
+}
+
+/* 右側大段介紹文字 */
+.text-main-pray {
+position: absolute;
+right: 6%;
+top: 40%;
+width: 26vw;
+color: #fff;
+font-size: 1.3vw;
+line-height: 1.9;
+text-align: center;
+opacity: 0;
+transform: translateY(-25px);
+animation: textDownFade 1s ease-out 2.5s forwards;
+}
+
+/* 這兩組動畫如果你CSS已經有page5寫過就不用重複加 */
+@keyframes prayFrameUp {
+0% {opacity: 0; transform: translateY(40px);}
+100% {opacity: 1; transform: translateY(0);}
+}
+@keyframes textDownFade {
+0% {opacity: 0; transform: translateY(25px);}
+100% {opacity: 1; transform: translateY(0);}
+}
+
+.page-pray .back-btn {
+position: absolute;
+left: 4%;
+top: 4%;
+z-index: 30;
+padding: 10px 22px;
+font-size: 15px;
+background: rgba(40, 20, 20, 0.85);
+border: 1px solid rgba(200, 170, 130, 0.5);
+color: #f0e2cc;
+cursor: pointer;
+}
+/* ========== 页面7（創造亞當詳情頁 page-adam） ========== */
+.page-adam {
+overflow: hidden;
+}
+.page-adam .p4-bg,
+.page-adam .p4-banner-top,
+.page-adam .p4-banner-bottom {
+position: absolute;
+}
+
+/* 上方主畫框：創造亞當整圖 */
+.frame-main-adam {
+position: absolute;
+left: 4%;
+top: 16%;
+width: 48vw;
+opacity: 0;
+transform: translateY(-40px);
+animation: prayFrameUp 1.1s ease-out 1.9s forwards;
+}
+.frame-main-adam img {
+width: 100%;
+height: auto;
+display: block;
+}
+
+/* 左下小畫框：手特寫 */
+.frame-hand-adam {
+position: absolute;
+left: 12%;
+bottom: 14%;
+width: 28vw;
+opacity: 0;
+transform: translateY(-40px);
+animation: prayFrameUp 1.1s ease-out 2.1s forwards;
+}
+.frame-hand-adam img {
+width: 100%;
+}
+
+/* 手特寫右側文字 */
+.text-hand-adam {
+position: absolute;
+left: 42%;
+bottom: 25%;
+color: #fff;
+font-size: 1.2vw;
+line-height: 1.8;
+opacity: 0;
+transform: translateY(-25px);
+animation: textDownFade 1s ease-out 2.5s forwards;
+}
+
+/* 單張合併致敬圖 */
+.frame-tribute-adam {
+position: absolute;
+left: 55%;
+bottom: 12%;
+width: 38vw;
+opacity: 0;
+transform: translateY(-40px);
+animation: prayFrameUp 1.1s ease-out 2.3s forwards;
+}
+.frame-tribute-adam img {
+width: 100%;
+height: auto;
+display: block;
+}
+
+/* 右側大段介紹文字 */
+.text-main-adam {
+position: absolute;
+right: 10%;
+top: 25%;
+width: 28vw;
+color: #fff;
+font-size: 1.25vw;
+line-height: 1.9;
+text-align: center;
+opacity: 0;
+transform: translateY(-25px);
+animation: textDownFade 1s ease-out 2.5s forwards;
+}
+
+.page-adam .back-btn {
+position: absolute;
+left: 4%;
+top: 4%;
+z-index: 30;
+padding: 10px 22px;
+font-size: 15px;
+background: rgba(40, 20, 20, 0.85);
+border: 1px solid rgba(200, 170, 130, 0.5);
+color: #f0e2cc;
+cursor: pointer;
+}
+/* page8 樣式，和page2/3規格一致 */
+.page-8 {
+background-image: url("./assets/page4_bg.jpg");
+}
+.page-8 .p4-bg,
+.page-8 .p4-banner-top,
+.page-8 .p4-banner-bottom {
+position: absolute;
+}
+.page-8 .wrap {
+position: relative;
+z-index: 10;
+color: #fff;
+text-align: center;
+align-items: center;
+}
+
+/* 結束瀏覽按鈕樣式 */
+.enter-summary-btn {
+position: absolute;
+right: 5%;
+bottom: 6%;
+z-index: 30;
+padding: 12px 26px;
+font-size: 15px;
+letter-spacing: 0.5px;
+color: #f5e6c8;
+background: linear-gradient(180deg, #5c3a3a 0%, #2f1a1a 100%);
+border: 1px solid #a07952;
+border-radius: 3px;
+cursor: pointer;
+pointer-events: auto;
+box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+transition: all 0.3s ease;
+}
+.enter-summary-btn:hover {
+color: #fff8e1;
+border-color: #c9a974;
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+/* 詳情頁右上角：加入瀏覽收藏夾 */
+.favorite-btn {
+  position: absolute;
+  right: 4%;
+  top: 4%;
+  z-index: 30;
+  padding: 10px 22px;
+  font-size: 15px;
+  background: rgba(40, 20, 20, 0.85);
+  border: 1px solid rgba(200, 170, 130, 0.5);
+  color: #f0e2cc;
+  cursor: pointer;
+}
+.favorite-btn.added {
+  border-color: #c9a974;
+  color: #fff8e1;
+}

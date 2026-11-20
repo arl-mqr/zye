@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phantom & Crimson Solitaire 古典油画展</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 页面1：输入名字页 -->
+  <div class="page page-1 active" id="page1">
+    <img class="angel-statue" src="./assets/angel_statue.png" alt="天使雕像">
+    <div class="wrap">
+      <h1>无论你曾来自哪里，无论你是否曾对西方古典美学有所了解</h1>
+      <p>此刻，开启你的鉴赏之旅</p>
+      <div class="gold-label">准备好了吗？</div>
+      <input type="text" id="userNameInput" placeholder="输入你的名字">
+      <button id="goPage2Btn">确认进入</button>
+      <button id="skipToPage4_1" class="skip-btn">跳过，直达展区</button>
+    </div>
+  </div>
+
+  <!-- 页面2：欢迎文字页 -->
+  <div class="page page-2" id="page2">
+    <img class="angel-statue page2-angel" src="./assets/angel_statue.png" alt="天使雕像">
+    <img class="hands-left-deco" src="./assets/hands_left.png" alt="蓝色手部装饰">
+    <img class="circle-deco" src="./assets/circle_deco.png" alt="圆圈装饰">
+    <div class="wrap text-fade-up">
+      <p>欢迎，<span id="userNameReplace"></span>，你的名字很美<br>
+      在过去，无处不在的美渗入我们的生活中，<br>
+      而你有没有尝试过，将他们发觉感受？<br>
+      就如你的名字一样</p>
+      <button id="goPage3Btn">继续 →</button>
+      <button id="backToPage1_2" class="skip-btn">← 返回上一页</button>
+      <button id="skipToPage4_2" class="skip-btn">跳过，直达展区</button>
+    </div>
+  </div>
+
+  <!-- 页面3：展览引言页 -->
+  <div class="page page-3" id="page3">
+    <div class="wrap text-fade-up">
+      <p>现在，跟随我们的脚步<br>
+      我们将要鉴赏1500年代十五世纪至1900年代前<br>
+      几幅著名神话故事油画作品<br>
+      此刻，从历史的洪流中打捞美学发展的千古一隅</p>
+      <button id="btnToPage4">继续观赏作品 →</button>
+      <button id="backToPage2_3" class="skip-btn">← 返回上一页</button>
+      <button id="skipToPage4_3" class="skip-btn">跳过，直达展区</button>
+    </div>
+  </div>
+
+  <!-- 页面4：天主教油画展区主页 -->
+  <div class="page page-4" id="page4">
+    <img class="p4-bg" src="./assets/page4_bg.jpg" alt="页面4暗红背景">
+    <img class="p4-banner-top" src="./assets/page4_top_banner.png" alt="顶部横幅">
+    <img class="p4-banner-bottom" src="./assets/page4_bottom_banner.png" alt="底部横幅">
+
+    <img class="p4-frame-pray art-link-click" src="./assets/frame_pray_full.png" alt="祈祷圣母画框" data-target="page6">
+    <img class="p4-frame-fallen art-link-click" src="./assets/frame_fallen_full.png" alt="堕落天使画框" data-target="page5">
+    <img class="p4-frame-adam art-link-click" src="./assets/frame_adam_full.png" alt="创造亚当画框" data-target="page7">
+
+    <img class="p4-text-fallen art-link-click" src="./assets/text_fallen_title.png" alt="堕落天使-1847" data-target="page5">
+    <img class="p4-text-pray art-link-click" src="./assets/text_pray_title.png" alt="祈祷圣母-1640" data-target="page6">
+    <img class="p4-text-adam art-link-click" src="./assets/text_adam_title.png" alt="创造亚当1511" data-target="page7">
+
+    <img class="p4-title-main" src="./assets/text_main_title.png" alt="天主教油画展区">
+    <img class="p4-title-prompt" src="./assets/text_prompt.png" alt="你想从哪幅画开始了解呢？">
+
+    <img class="p4-deco-angel" src="./assets/angel_statue.png" alt="天使雕像">
+    <img class="p4-deco-hands" src="./assets/hands_left.png" alt="蓝色手部装饰">
+    <!-- 结束浏览，进入总结页 page8 -->
+<button class="enter-summary-btn" id="endBrowseBtn">结束浏览 →</button>
+
+  </div>
+
+  <!-- 頁：墮落天使詳細介紹 page5 -->
+  <div class="page page-fallen" id="page5">
+    <img class="p4-bg" src="./assets/page4_bg.jpg" alt="背景">
+    <img class="p4-banner-top" src="./assets/page4_top_banner.png" alt="顶部横幅">
+    <img class="p4-banner-bottom" src="./assets/page4_bottom_banner.png" alt="底部横幅">
+
+    <div class="frame-main-fallen">
+      <img src="./assets/fallen_angel_1847.png" alt="墮落天使">
+    </div>
+
+    <div class="frame-eye-fallen">
+      <img src="./assets/fallen_eye_detail.png" alt="眼睛特寫">
+    </div>
+    <div class="text-eye-fallen">
+      而這幅畫最著名的是<br>
+      這滴用概括手法畫出來的淚滴高光<br>
+      生動表達了人物的不甘情緒<br>
+      完美映襯了路西法高傲不屈的性格
+    </div>
+
+    <div class="frame-side-fallen">
+      <img src="./assets/fallen_head_detail.png" alt="頭部細節">
+    </div>
+
+    <div class="text-main-fallen">
+      《墮落天使》（法語：L'Ange déchu）<br>
+      是法國畫家亞歷山大·卡巴內爾的作品。<br>
+      這幅畫作於1847年完成，當時畫家年僅24歲，描繪的是被逐出天堂後的魔鬼路西法。該畫現收藏於法國蒙彼利埃的法布爾博物館。
+    </div>
+   <button class="favorite-btn" data-title="墮落天使" data-year="1847">加入瀏覽收藏夾</button>
+
+    <button class="back-btn" data-target="page4">返回畫作選擇</button>
+  </div>
+<!-- 頁6：祈禱聖母詳細介紹 page6 -->
+<div class="page page-pray" id="page6">
+<img class="p4-bg" src="./assets/page4_bg.jpg" alt="背景">
+<img class="p4-banner-top" src="./assets/page4_top_banner.png" alt="顶部横幅">
+<img class="p4-banner-bottom" src="./assets/page4_bottom_banner.png" alt="底部横幅">
+
+<div class="frame-main-pray">
+<img src="./assets/pray_virgin_main.png" alt="祈禱的聖母">
+</div>
+
+<div class="frame-eye-pray">
+<img src="./assets/pray_eye_detail.png" alt="眼睛特寫">
+</div>
+<div class="text-eye-pray">
+      其中最值得品味的就是<br>
+      人物的眼神刻画<br>
+</div>
+
+<div class="frame-side-pray">
+<img src="./assets/pray_weep_statue.png" alt="哭泣聖母雕塑">
+</div>
+<div class="text-side-pray">
+      另一個拓展美學形象：<br>
+      哭泣聖母（雕塑作品）<br>
+      哭泣聖母的形象與祈禱的聖母成美學文化上的對立美學，<br>
+      為我們展現了兩種相反情緒的表現刻畫
+</div>
+
+<div class="text-main-pray">
+      《祈禱的聖母》（The Virgin in Prayer）<br>
+      是意大利藝術家<br>
+      喬瓦尼·巴蒂斯塔·薩爾維·達·薩索費拉托<br>
+      創作的一幅油畫，創作於約1640-1650年，目前收藏於國家美術館，尺寸為73x58公分（29 x 23吋）。<br>
+      這幅畫作與真人大小相同，描繪了聖母瑪利亞祈禱的場景。
+</div>
+<button class="favorite-btn" data-title="祈禱的聖母" data-year="1640">加入瀏覽收藏夾</button>
+
+<button class="back-btn" data-target="page4">返回畫作選擇</button>
+</div>
+
+<!-- 頁7：創造亞當詳細介紹 page7 -->
+<div class="page page-adam" id="page7">
+  <img class="p4-bg" src="./assets/page4_bg.jpg" alt="背景">
+  <img class="p4-banner-top" src="./assets/page4_top_banner.png" alt="顶部横幅">
+  <img class="p4-banner-bottom" src="./assets/page4_bottom_banner.png" alt="底部横幅">
+
+  <div class="frame-main-adam">
+    <img src="./assets/create_adam_main.png" alt="創造亞當">
+  </div>
+
+  <div class="frame-hand-adam">
+    <img src="./assets/create_adam_hand_detail.png" alt="創世之手特寫">
+  </div>
+
+  <div class="text-hand-adam">
+    其中最值得被考究的<br>
+    部分就是創世之指<br>
+    後續許多現代影視作<br>
+    品都致敬過這一幕
+  </div>
+
+  <div class="frame-tribute-adam">
+    <img src="./assets/create_adam_tribute_combined.png" alt="創造亞當致敬合併圖">
+  </div>
+
+  <div class="text-main-adam">
+    《創造亞當》是米開朗基羅創作的<br>
+    西斯汀小堂天頂畫《創世紀》的一部分，<br>
+    創作於1511至1512年間的文藝復興全盛期。<br>
+    這幅壁畫描繪的是《聖經·創世紀》<br>
+    中上帝創造人類始祖亞當的情形，按照事<br>
+    情發展順序是創世紀天頂畫中的第四幅。<br>
+    作為世界名畫之一，後世出現了許多《創<br>
+    造亞當》的仿作
+  </div>
+  <button class="favorite-btn" data-title="創造亞當" data-year="1511">加入瀏覽收藏夾</button>
+
+  <button class="back-btn" data-target="page4">返回畫作選擇</button>
+</div>
+<!-- 頁8：總結頁 page8 -->
+<div class="page page-8" id="page8">
+<img class="p4-bg" src="./assets/page4_bg.jpg" alt="背景">
+<img class="p4-banner-top" src="./assets/page4_top_banner.png" alt="顶部横幅">
+<img class="p4-banner-bottom" src="./assets/page4_bottom_banner.png" alt="底部横幅">
+<div class="wrap text-fade-up">
+<h2>本次瀏覽總結</h2>
+
+<p class="summary-text" id="summaryText"></p>
+
+
+<script src="script.js"></script>
+</body>
+</html>
